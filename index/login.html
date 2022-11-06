@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <a href="#"><img src="/assets/forrest_logo.png" alt="logo" class="logo"></a>
+        <nav class="navegation">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="interacao.html">Interação</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html" id="login">Login</a></li>
+            </ul>
+        </nav> 
+    </header>
+<section class="user-login">
+<div>
+    <img src="/assets/forestanimation.gif" alt="animation" id="gif-forrest">
+</div>
+
+    <div id="container">
+        <h1>Login</h1>
+        <form action="log">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="ipt_email" placeholder="Seu E-mail">
+            <label for="password">Senha</label>
+            <input type="password" name="senha" id="ipt_senha" placeholder="Sua senha">
+            <button onclick="entrar()">Login</button>
+        </form>
+        <div id="registro-container">
+            <p>Ainda não tem um cadastro?</p>
+            <a href="cadastro.html">Registrar</a>
+        </div>
+    </div>
+
+</section>
+<footer class="fimpag">
+    <a href="https://github.com/jofsan"> <i class="fa fa-github" style="font-size:30px"></i></a>
+   <a href="https://web.facebook.com/jhonny.fernandes.106/"><i class="fa fa-facebook-square" style="font-size:30px"></i></a> 
+<div class="footer_desc">
+<p>Copyright &copy; 2022 Jonatas Fernandes. Aluno <a href="https://www.sptech.school/"><span>SPTECH</span></a></p>
+</div>
+ </footer>
+    
+</body>
+</html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

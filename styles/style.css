@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+
+/*seleção universal*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+
+
+/*estilizando o header E fixar no topo */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(34, 34, 34);
+    margin-right: 5px;
+
+}
+
+header .logo{
+    position: relative;
+    max-width: 180px;
+    margin-top: 12px;
+    margin-left: 20px;
+}
+
+header .navegation ul{
+    position: relative;
+    display: flex;
+}
+
+header .navegation li{
+    list-style: none;
+}
+
+header .navegation li a{
+    color: rgb(255,255,255);
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-right: 20px;
+}
+header .navegation li a:hover{
+    color:  rgb(10, 160, 255)
+
+
+}
+#aqui{
+    color: rgb(10, 160, 255);
+}
+/*estilizando especificamente o design da li do LOGIN*/
+#login{
+    border: 1px solid #2962ff;
+    width: 150px;
+    border-radius: 18px;
+    text-align: center;
+
+}
+#login:hover{
+background-color: rgb(10, 160, 255) ;
+color: white;
+
+}
+
+/*estilizando banner*/
+
+.banner {
+    height: 1100px;
+    background-image: url(../assets/forrestBanco.jpeg);
+    background-size: cover;
+    margin-top: 80px;
+}
+
+.banner:before {
+    content: '';
+    position: absolute;
+    top: 0; left: -25px;
+    border-left: 26px solid transparent;
+    border-top: 25px solid blue;
+    border-bottom: 26px solid blue;
+    width: 0;
+  }
+
+.banner .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Sections textos*/
+
+
+.describe h1{
+    color: rgb(10, 160, 255);
+    font-size: 2rem;
+    text-align: center;
+}
+
+.describe p{
+    font-size: 22px;
+    margin: 10px;
+}
+
+.describe h2{
+    color: rgb(10, 160, 255);
+    text-align: center;
+}
+/*Sections videos*/
+.videos{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    
+    
+}
+
+/*bubba gump*/
+.market{
+    background:linear-gradient(rgb(34,34,34), rgb(50,80,150));
+    width: 100%;
+    height: 600px;
+    border: 2px solid;
+    
+
+}
+
+.market h2{
+    color: #fff;
+    text-align: center;
+}
+
+.market img{
+    align-self: center;
+}
+
+.market-card{
+    width: 80%;
+    border: solid 2px rgb(135, 201, 241);
+    height: 60%;
+    margin-left:180px ;
+}
+
+
+/*footer*/
+.fimpag{
+    flex-shrink: 0;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+i{
+    text-decoration: none;
+    color: white;
+    margin: 5px;
+}
+i:hover{
+    background-color: rgb(34, 34, 34);
+    color: rgb(10, 160, 255);
+}
+
+.footer_desc p{
+    
+    letter-spacing: 2px;
+    
+    
+}
+
+ .footer_desc a{
+    text-decoration: none;
+    color:rgb(135, 201, 241);
+    letter-spacing: 2px;
+    font-weight: bold;
+    
+}
+
+
+

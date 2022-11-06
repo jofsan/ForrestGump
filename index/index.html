@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Inicio</title>
+   
+</head>
+<body>  
+<header>
+    <a href="#"><img src="/assets/forrest_logo.png" alt="logo" class="logo"></a>
+    <nav class="navegation">
+        <ul>
+            <li><a id="aqui" href="index.html">Inicio</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="interacao.html">Interação</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="login.html" id="login">Login</a></li>
+        </ul>
+    </nav> 
+</header>
+<section>
+    <div class="banner">
+       
+    </div>    
+</section>
+
+<section class="describe">
+    <h1>Resumo sobre o Forrest</h1>
+    <p>Forrest Gump nasceu em 1944, no Alabama, e trás consigo seu carisma e simplicidade que encanta a todos,
+         mesmo que na infância tenha sido diagnosticado com um QI abaixo da média, ou seja, abaixo de 75.
+        Fez diversas coisas incriveis, como : representar o país na guerra do Vietna, ser grande destaque no futebol americano
+        na faculdade, interagir com o presidente dos EUA, 
+        ser inspiração na coreografia do Elvis Presley ou até mesmo 
+        representar a nação jogando Ping-pong, contra a China. 
+        Além de tudo isso, teve muito sucesso vendendo camarão, seguindo o sonho de seu amigo, Bubba. Infelizmente, morto 
+        na guerra, então Forrest  o homenageou, dando o nome do seu novo negócio de Bubba Gump.
+    <p>
+      <h2>Fique com algumas cenas:</h2>
+
+</section>
+<section class="videos">
+    <div>
+        <video controls="demo" width="360" height="300">
+            <source src="/assets/icecream-dan.mp4" type="video/mp4" >
+    </div>  
+    <div>
+        <video controls="demo" width="360" height="280">
+            <source src="/assets/gumparmy.mp4" type="video/mp4" >
+    </div>
+    <div>
+        <video controls="demo" width="400" height="300">
+            <source src="/assets/Forrest Gump and Elvis Presley.mp4" type="video/mp4" >
+    </div>
+</section>
+
+<section class="market">
+    <h2>BUBBA GUMP COMERCIO <img src="/assets/bubba_logo.png" alt="" style="width: 150px;"></h2>
+   
+        <div class="market-card">
+            
+            <span>Quantidade em KG que deseja:</span><input type="number" id="ipt_qtdCamarao">
+                <button onclick="aguaSal()">Agua Salgada</button>
+                <button onclick="aguaDoc()">Agua Doce</button>
+                <div id="res"></div>
+        </div>
+        </div>
+                
+</section>
+
+       
+
+
+
+<footer class="fimpag">
+       <a href="https://github.com/jofsan"> <i class="fa fa-github" style="font-size:30px"></i></a>
+      <a href="https://web.facebook.com/jhonny.fernandes.106/"><i class="fa fa-facebook-square" style="font-size:30px"></i></a> 
+<div class="footer_desc">
+<p>Copyright &copy; 2022 Jonatas Fernandes. Aluno <a href="https://www.sptech.school/"><span>SPTECH</span></a></p>
+</div>
+    </footer>
+</body>
+</html>
+
+<script>
+    function aguaSal(){
+        var qtdCamarao=ipt_qtdCamarao.value;
+        var aguaSalgada =65;
+        
+
+        if(qtdCamarao<2){
+            res.innerHTML=`R$ ${(qtdCamarao*aguaSalgada) .toFixed(2)}`
+        }else if(qtdCamarao>=2&&qtdCamarao<3){
+            aguaSalgada-=aguaSalgada*0.08
+
+res.innerHTML=`R$ ${(qtdCamarao*aguaSalgada).toFixed(2)}`
+        }else if( qtdCamarao>=3){
+            aguaSalgada-=aguaSalgada*0.12
+
+res.innerHTML=`R$ ${(qtdCamarao*aguaSalgada).toFixed(2)}`
+        } 
+
+    }
+    function aguaDoc(){
+
+        var aguaDoce=55;
+        var qtdCamarao=ipt_qtdCamarao.value;
+             if(qtdCamarao<2){
+            res.innerHTML=`R$ ${(qtdCamarao*aguaDoce) .toFixed(2)}`
+        }else if(qtdCamarao>=2&&qtdCamarao<3){
+            aguaDoce-=aguaDoce*0.06
+
+res.innerHTML=`R$ ${(qtdCamarao*aguaDoce).toFixed(2)}`
+        }else if( qtdCamarao>=3){
+            aguaDoce-=aguaDoce*0.10
+
+res.innerHTML=`R$ ${(qtdCamarao*aguaDoce).toFixed(2)}`
+        } 
+    }
+</script>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/cadastro.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <a href="#"><img src="/assets/forrest_logo.png" alt="logo" class="logo"></a>
+        <nav class="navegation">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="interacao.html">Interação</a></li>
+                <li><a id="aqui" href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html" id="login">Login</a></li>
+            </ul>
+        </nav> 
+    </header>
+<section class="user-login">
+<div>
+    <img src="/assets/forrest_ola.gif" alt="animation" id="gif-forrest">
+</div>
+
+    <div id="container">
+        <h1>Cadastre-se</h1>
+        <form action="cad">
+            <label for="text">Nome</label>
+            <input type="text" name="nome" id="ipt_nome" placeholder="Seu nome">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="ipt_email" placeholder="Seu E-mail">
+            <label for="password">Senha</label>
+            <input type="password" name="senha" id="ipt_senha" placeholder="Sua senha">
+            <label for="password">confirmar Senha</label>
+            <input type="password" name="ipt_confirmSenha" id="ipt_confirmSenha" placeholder="Confirm sua senha">
+            <span>Onde conheceu o Forrest?</span>
+            <select name="sel_onde" id="whereknow">
+                <option value="0">--selecione--</option>
+                <option value="cinema">Cinema</option>
+                <option value="amigo">Amigos</option>
+                <option value="internet">Neste site</option>
+                <option value="outros">Outros</option>
+            </select>
+            <button onclick="cadastrar()">Cadastrar</button>    
+        </form>
+    </div>
+
+</section>
+<footer class="fimpag">
+    <a href="https://github.com/jofsan"> <i class="fa fa-github" style="font-size:30px"></i></a>
+   <a href="https://web.facebook.com/jhonny.fernandes.106/"><i class="fa fa-facebook-square" style="font-size:30px"></i></a> 
+<div class="footer_desc">
+<p>Copyright &copy; 2022 Jonatas Fernandes. Aluno <a href="https://www.sptech.school/"><span>SPTECH</span></a></p>
+</div>
+ </footer>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = ipt_nome.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+        var confirmacaoSenhaVar = ipt_confirmSenha.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
