@@ -1,3 +1,3 @@
 # ForrestGump
-Projeto Forrest Gump 
-Contextualizando algumas partes sobre o Forrest Gump.
+Projeto individual realizado para São Paulo Tech School
+
