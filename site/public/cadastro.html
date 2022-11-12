@@ -31,21 +31,31 @@
     <div class="card">
         <h2>SEJA UM FÃ</h2>
         <div class="form">
-
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <span class="tipo_campo">Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome">
+            <input id="ipt_nome" type="text" placeholder="Seu nome">
 
             <span class="tipo_campo">E-mail:</span>
-            <input id="email_input" type="text" placeholder="Seu e-mail">
+            <input id="ipt_email" type="text" placeholder="Seu e-mail">
 
             <span class="tipo_campo">Senha:</span>
-            <input id="senha_input" type="password" placeholder="Sua senha">
+            <input id="ipt_senha" type="password" placeholder="Sua senha">
 
             <span class="tipo_campo">Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
+            <input id="ipt_confirmSenha" type="password" placeholder="Confirme sua senha">
 
             <button class="btn" onclick="cadastrar()">Cadastrar</button>
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/loading-gif.gif" id="loading-gif" style="width: 20px;">
+            </div>
 
+            <div id="div_erros_login">
+
+            </div>
         </div>
     </div>
 </div>
@@ -60,12 +70,12 @@
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var nomeVar = ipt_nome.value;
-        var emailVar = ipt_email.value;
-        var senhaVar = ipt_senha.value;
-        var confirmacaoSenhaVar = ipt_confirmSenha.value;
+        var nome = ipt_nome.value;
+        var email = ipt_email.value;
+        var senha = ipt_senha.value;
+        var confirmacaoSenha = ipt_confirmSenha.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
@@ -85,9 +95,9 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha
             })
         }).then(function (resposta) {
 

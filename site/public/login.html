@@ -28,6 +28,11 @@
 </div>
 
     <div id="container">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
         <h1>Login</h1>
             <span >E-mail</span>
             <input type="email" name="email" id="ipt_email" placeholder="Seu E-mail">
@@ -37,6 +42,13 @@
         <div id="registro-container">
             <p>Ainda não tem um cadastro?</p>
             <a href="cadastro.html">Registrar</a>
+        </div>
+        <div id="div_aguardar" class="loading-div">
+            <img src="./assets/loading-gif.gif" id="loading-gif" style="width: 20px;">
+        </div>
+
+        <div id="div_erros_login">
+
         </div>
     </div>
 
@@ -51,10 +63,10 @@
     function entrar() {
         aguardar();
 
-        var emailVar = ipt_email.value;
-        var senhaVar = ipt_senha.value;
+        var email = ipt_email.value;
+        var senha = ipt_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (email == "" || senha == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
@@ -64,8 +76,8 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -73,8 +85,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                emailServer: email,
+                senhaServer: senha
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -86,12 +98,12 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.EMAIL_USUARIO = json.emailVar;
+                    sessionStorage.NOME_USUARIO = json.nomeVar;
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "interacao.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
