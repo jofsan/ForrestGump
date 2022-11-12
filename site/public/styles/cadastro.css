@@ -43,10 +43,11 @@ a:hover{
 }
 
 /* estilizando login*/
-#container{
+.container{
     border: 2px solid rgb(34,34,34);
     background-color:rgb(255, 255, 255);
-    width: 350px;
+    width: 450px;
+    height: 480px;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
@@ -55,28 +56,21 @@ a:hover{
     margin-top: 20vh;
 }
 
-h1{
-    font-size: 2.5rem;
+h2{
+    font-size: 1.5rem;
     color: rgb(10, 160, 255);
+    margin-bottom: 3px;
 }
 
 /* estilizando Formulário*/
 
-form{
-    margin-top: 30px;
-    margin-bottom: 40px;
-}
 
-label, input{
+ span, input{
     display: block;
     width: 100%;
     text-align: left;
 }
 
-label{
-    font-weight: bold;
-    font-size: 1rem;
-}
 
 input{
     border-bottom: 2px solid rgb(34,34,34);

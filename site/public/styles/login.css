@@ -38,6 +38,7 @@ textarea:focus, input:focus{
 a{
     font-size: 1rem;
     text-decoration: none;
+    font-weight: bold;
     
 }
 
@@ -65,18 +66,15 @@ h1{
 
 /* estilizando Formulário*/
 
-form{
-    margin-top: 30px;
-    margin-bottom: 40px;
-}
 
-label, input{
+
+span, input{
     display: block;
     width: 100%;
     text-align: left;
 }
 
-label{
+span{
     font-weight: bold;
     font-size: 1rem;
 }
@@ -88,10 +86,6 @@ input{
     margin-bottom: 20px;
     border-radius: 12px;
 
-}
-
-input:focus{
-    border-bottom: 2px solid rgb(10, 160, 255);
 }
 
 button{
