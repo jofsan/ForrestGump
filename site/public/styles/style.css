@@ -76,7 +76,7 @@ color: white;
 
 .banner {
     height: 1100px;
-    background-image: url(./assets/forrestBanco.jpeg);
+    background-image: url(../assets/forrestBanco.jpeg);
     background-size: cover;
     margin-top: 80px;
 }
