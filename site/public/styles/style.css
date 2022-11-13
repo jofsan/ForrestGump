@@ -186,5 +186,11 @@ i:hover{
     
 }
 
+a{
+    text-decoration: none;
+    color:rgb(10, 160, 255); 
+    font-size: 1.5rem;
+}
+
 
 
