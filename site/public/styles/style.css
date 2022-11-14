@@ -126,21 +126,31 @@ color: white;
 }
 /*frases*/
 
+/*frases*/
+
 .frases{
-    background-color: rgb(34, 34, 34);
-    padding: 5rem;
+    background-image: url(../assets/forrest-feathers.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2rem;
    width: 100%;
     color: #fff;
     box-shadow: 10px 10px 10px;
     display: flex;
-    flex-direction: column;
+justify-content: center;
     align-items: center;
+
 }
 
 .frases h2{
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+.imagem img{
+    width: 500px;
+    bottom: 0;
+    
 }
 
 .frases button{
@@ -152,14 +162,23 @@ color: white;
     font-weight:bold;
     letter-spacing: 1px;
     color: #fff;
+    margin-top: 10px;
+    border: none;
+   
 }
 .frases button:hover{
     background-color:rgb(10, 160, 255);
 }
 
+#res{
+    font-size: 25px;
+    font-family: sans-serif;
+    margin-top: 20px;
+}
+
 /*seção comentarios*/
 .comments{
-    background-color: rgb(135, 201, 241);
+    background-color: rgb(10, 160, 255);
     display: flex;
     justify-content: center;
 
