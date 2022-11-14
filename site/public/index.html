@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./js/funcoes.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v15.0" nonce="6FJirf7Q"></script>
     <title>Inicio</title>
    
 </head>
@@ -59,21 +60,12 @@
     </div>
 </section>
 
-<section class="market">
-    <h2>BUBBA GUMP COMERCIO <img src="./assets/bubba_logo.png" alt="" style="width: 150px;"></h2>
-   
-        <div class="market-card">
-            
-            <span>Quantidade em KG que deseja:</span><input type="number" id="ipt_qtdCamarao">
-                <button onclick="aguaSal()">Agua Salgada</button>
-                <button onclick="aguaDoc()">Agua Doce</button>
-                <div id="res"></div>
-        </div>
-        </div>
-                
-</section>
 
-       
+<section class="comments">
+    <div id="fb-root"></div>
+<h1>Comentários:</h1>
+<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+</section>
 
 
 
@@ -88,38 +80,6 @@
 </html>
 
 <script>
-    function aguaSal(){
-        var qtdCamarao=ipt_qtdCamarao.value;
-        var aguaSalgada =65;
-        
-
-        if(qtdCamarao<2){
-            res.innerHTML=`R$ ${(qtdCamarao*aguaSalgada) .toFixed(2)}`
-        }else if(qtdCamarao>=2&&qtdCamarao<3){
-            aguaSalgada-=aguaSalgada*0.08
-
-res.innerHTML=`R$ ${(qtdCamarao*aguaSalgada).toFixed(2)}`
-        }else if( qtdCamarao>=3){
-            aguaSalgada-=aguaSalgada*0.12
-
-res.innerHTML=`R$ ${(qtdCamarao*aguaSalgada).toFixed(2)}`
-        } 
-
-    }
-    function aguaDoc(){
-
-        var aguaDoce=55;
-        var qtdCamarao=ipt_qtdCamarao.value;
-             if(qtdCamarao<2){
-            res.innerHTML=`R$ ${(qtdCamarao*aguaDoce) .toFixed(2)}`
-        }else if(qtdCamarao>=2&&qtdCamarao<3){
-            aguaDoce-=aguaDoce*0.06
-
-res.innerHTML=`R$ ${(qtdCamarao*aguaDoce).toFixed(2)}`
-        }else if( qtdCamarao>=3){
-            aguaDoce-=aguaDoce*0.10
-
-res.innerHTML=`R$ ${(qtdCamarao*aguaDoce).toFixed(2)}`
-        } 
-    }
-</script>
+    var atr = document.getElementsByClassName("fb-comments");
+    atr[0].setAttribute("data-href", location.href);
+ </script>
