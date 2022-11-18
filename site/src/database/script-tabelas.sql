@@ -17,10 +17,10 @@ CREATE TABLE usuario (
 	senha VARCHAR(20)
 );
 
-CREATE TABLE acesso (
+CREATE TABLE pontuacao (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	email VARCHAR(60),
-	senha VARCHAR(20),
+	acertos int,
+	pontos int,
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
