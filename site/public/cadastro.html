@@ -82,6 +82,8 @@
 
             finalizarAguardar();
             return false;
+        }else if(confirmacaoSenha!=senha){
+alert('A confirmação não pode ser diferente.')
         }
         else {
             setInterval(sumirMensagem, 5000)
