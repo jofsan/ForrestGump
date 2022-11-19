@@ -87,36 +87,30 @@
 </section>
 <button onclick="responder()">RESPONDER</button>
 <h2>ACERTOS: <span id="res"></span></h2>
-<h2>NÍVEL DE FAN: <span id="result"></span><h2></h2>
+<h2>NÍVEL DE FAN: <span id="result"></span>
+    <h2>PONTOS: <div id="score"></div>
+    <div class="voto">
+        <h3> O que achou do Quiz?</h3>
+<select name="voto" id="sel_voto">
+    <option value="">--selecione--</option>
+    <option value="facil">facil</option>
+    <option value="medio">medio</option>
+    <option value="dificil">dificil</option>
+</select>
+<button onclick="votar()">Votar</button>
+<span id="opSel"></span>
+    </div>
 </div>    
-    
-<section class="game"> 
-    
-    <div class="game-board">
-        <h1>FORREST GAME</h1>
-    <img src="./assets/105020-Banco-Tamanduá-01.png" class="banco">
-    <img src="./assets/giphy (1).gif" class="forrest">
-    <img src="./assets/lua.png" class="lua">
-        </div>
-    </section>
 </section>
 
 </body>
 </html>
 <script>
-    var idUsuario = sessionStorage.ID_USUARIO
-    var nome = sessionStorage.NOME_USUARIO
-    user_name.innerHTML=`${nome}`
-    function exit() {
-        sessionStorage.clear()
-        window.location = "index.html"
-    }
-</script>
-<script>
-    let corretas =[2,1,1,2,3];
-    let opSel = [];
-    let qtdCorreta=0;
-    let star='<img src="./assets/star.png" style="width:30px;">'
+    var corretas =[2,1,1,2,3];
+    var opSel = [];
+    var qtdCorreta=0;
+    var star='<img src="./assets/star.png" style="width:30px;">'
+    var pontos = 10;
     
     
 
@@ -127,54 +121,38 @@
 
     function responder(){
         qtdCorreta =0;
+        pontos=0;
         for(var index=0; index<corretas.length;index++){
             if(corretas[index]==opSel[index]){
                 qtdCorreta++;
+                pontos+=10;
             }if(qtdCorreta>=4){
                 res.style.color="green";
                 result.innerHTML=`${star+star+star+star+star} `
+                score.innerHTML=`${pontos}`
             }else if(qtdCorreta==3){
                 result.innerHTML=`${star+star+star} `
+                score.innerHTML=`${pontos}`
                 res.style.color="orange";
             }
             else if(qtdCorreta<=2){
                 res.style.color="red";
                 result.innerHTML=`${star}`
+                score.innerHTML=`${pontos}`
             }
             
         }
         res.innerHTML = qtdCorreta;
     }
 
-    var forrest= document.querySelector('.forrest')
-    var banco= document.querySelector('.banco')
 
-var jump=()=> {
-    forrest.classList.add('jump')
-
-    setTimeout(()=>{
-        forrest.classList.remove('jump')
-    }, 500)
-}
-var loop = setInterval(()=>{
-    var bancoPosition= banco.offsetLeft;
-    var forrestPosition= +window.getComputedStyle(forrest).bottom.replace('px', '');
-
-    if(bancoPosition<= 85 && bancoPosition>0 && forrestPosition < 70){
-        banco.style.animation='none';
-        banco.style.left=`${bancoPosition}px`;
-
-        forrest.style.animation='none';
-        forrest.style.left=`${forrestPosition}px`;
-
-        forrest.src='../assets/GAMEOVER_forrest.png' ;
-        forrest.style.width='350px';
-        forrest.style.marginRight='100px'
-
-        clearInterval(loop);
+    var idUsuario = sessionStorage.ID_USUARIO
+    var nome = sessionStorage.NOME_USUARIO
+    var idsel =  sessionStorage.ID_SEL
+    var opSelecionada=0
+    user_name.innerHTML=`${nome}`
+    function exit() {
+        sessionStorage.clear()
+        window.location = "index.html"
     }
-
-},10);
-
-document.addEventListener('keydown', jump);
 </script>

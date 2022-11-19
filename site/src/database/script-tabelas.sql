@@ -17,7 +17,7 @@ CREATE TABLE usuario (
 	senha VARCHAR(20)
 );
 
-CREATE TABLE pontuacao (
+CREATE TABLE quiz (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	acertos int,
 	pontos int,
@@ -25,10 +25,14 @@ CREATE TABLE pontuacao (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE quiz (
+CREATE TABLE votoDificuldade (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	acertos INT,
-	FOREIGN KEY (fk_acesso) REFERENCES acesso(id)
+	dificuldade VARCHAR(30),
+	fk_usuario int,
+	fk_quiz int,
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
+	FOREIGN KEY (fk_quiz) REFERENCES quiz (id)
+
 );
 
 
