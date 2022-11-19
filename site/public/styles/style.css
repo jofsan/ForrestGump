@@ -110,14 +110,17 @@ color: white;
 }
 
 .describe p{
-    font-size: 22px;
+    font-size: 1.5rem;
     margin: 10px;
 }
 
 .describe h2{
     color: rgb(10, 160, 255);
     text-align: center;
+    font-size: 2rem;
 }
+
+
 /*Sections videos*/
 .videos{
     display: flex;
@@ -126,10 +129,19 @@ color: white;
     
 }
 /*cards sociais*/
+.titulo-card{
+    color: rgb(10, 160, 255);
+    text-align: center;
+    font-size: 2rem;
+    margin: 5px;
+    
+}
+
 .card{
     display: flex;
    justify-content: space-between;
-   background-color: rgb(34, 34, 34);
+   background-color: rgb(0, 0, 0);
+   box-shadow: 0px 0px 8px rgb(10, 160, 255);
 }
 
 .card-1{
@@ -139,7 +151,7 @@ color: white;
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgb(34, 34, 34);
+    box-shadow: 0px 0px 12px rgb(10, 160, 255);
 }
 .card-2{
     width: 300px;
@@ -148,7 +160,7 @@ color: white;
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgb(34, 34, 34);
+    box-shadow: 0px 0px 12px rgb(10, 160, 255);
 }
 .card-3{
     width: 300px;
@@ -157,7 +169,7 @@ color: white;
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgb(34, 34, 34);
+    box-shadow: 0px 0px 12px rgb(10, 160, 255);
 }
 .card-4{
     width: 300px;
@@ -166,7 +178,7 @@ color: white;
     background-color: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0px 0px 10px rgb(34, 34, 34);
+    box-shadow: 0px 0px 12px rgb(10, 160, 255);
 }
 
 .card-header{
@@ -187,16 +199,16 @@ color: white;
     font-family: sans-serif;
 }
 .card-titulo{
-    font-size: 20px;
-    margin: 10px 0;
+    font-size: 1.5rem;
+    margin: 5px 0;
     font-weight: bold;
 }
 .card-tipo{
-    font-size: 15px;
-    margin: 15px 0;
+    font-size: 1rem;
+    margin: 5px 0;
 }
 .card-texto{
-    font-size: 12px;
+    font-size: 1rem;
     width: 250px;
     margin: 0 auto;
 }
