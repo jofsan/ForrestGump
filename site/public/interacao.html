@@ -15,10 +15,11 @@
         <nav class="navegation">
             <ul>
                 <li><a  href="index.html">Inicio</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a id="aqui" href="interacao.html">Interação</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="login.html" id="login">Login</a></li>
+                <li> <a id="sair" onclick="exit()">Sair</a></li>
+                <div class="icon-name">
+                    <span>Olá, <span class="user-name" id="user_name"></span>
+                    <img src="assets/user-icon.png" alt="">
+                </div>
             </ul>
         </nav> 
     </header>
@@ -102,6 +103,15 @@
 
 </body>
 </html>
+<script>
+    var idUsuario = sessionStorage.ID_USUARIO
+    var nome = sessionStorage.NOME_USUARIO
+    user_name.innerHTML=`${nome}`
+    function exit() {
+        sessionStorage.clear()
+        window.location = "index.html"
+    }
+</script>
 <script>
     let corretas =[2,1,1,2,3];
     let opSel = [];

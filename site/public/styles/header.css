@@ -56,5 +56,20 @@ background-color: rgb(10, 160, 255) ;
 color: white;
 
 }
+#sair{
+   
+    color: #fff;
+    cursor: pointer;
+}
+#sair:hover{
+    color: rgb(10, 160, 255) ;
+}
+
+.icon-name span{
+    color: #fff;
+}
+.icon span .user_name{
+    color: #fff;
+}
 
   

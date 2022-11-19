@@ -55,9 +55,11 @@ header .navegation li a:hover{
 
 
 }
+
 #aqui{
     color: rgb(10, 160, 255);
 }
+
 /*estilizando especificamente o design da li do LOGIN*/
 #login{
     border: 1px solid #2962ff;

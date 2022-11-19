@@ -35,3 +35,9 @@ i:hover{
     font-weight: bold;
     
 }
+.icon-name span{
+    color: #fff;
+}
+.icon span .user_name{
+    color: #fff;
+}
