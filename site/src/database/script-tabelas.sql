@@ -17,7 +17,7 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE quiz (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	idquiz INT PRIMARY KEY AUTO_INCREMENT,
 	acertos int,
 	score int,
 	fk_usuario INT,
@@ -25,7 +25,7 @@ CREATE TABLE quiz (
 );
 
 CREATE TABLE votoDificuldade (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	idvoto INT PRIMARY KEY AUTO_INCREMENT,
 	dificuldade VARCHAR(30),
 	fk_usuario int,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
