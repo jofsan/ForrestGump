@@ -5,7 +5,6 @@
 /*
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
-
 CREATE DATABASE forrestgump;
 
 USE forrestgump;
@@ -20,7 +19,7 @@ CREATE TABLE usuario (
 CREATE TABLE quiz (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	acertos int,
-	pontos int,
+	score int,
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
@@ -29,13 +28,11 @@ CREATE TABLE votoDificuldade (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	dificuldade VARCHAR(30),
 	fk_usuario int,
-	fk_quiz int,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id),
-	FOREIGN KEY (fk_quiz) REFERENCES quiz (id)
-
+	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-
+select*from usuario join quiz on fk_usuario=usuario.id 
+join votodificuldade on votodificuldade.fk_usuario=usuario.id;
 
 
 CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
