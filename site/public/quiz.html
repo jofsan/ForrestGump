@@ -91,13 +91,12 @@
     <h2>SCORE: <div id="s"></div>
     <div class="voto">
         <h3> O que achou do Quiz?</h3>
-<select name="voto" id="sel_op">
+<select name="voto" id="sel_op" onchange="selecionarOp()">
     <option value="">--selecione--</option>
-    <option value="facil">facil</option>
-    <option value="medio">medio</option>
-    <option value="dificil">dificil</option>
+    <option value="facil">Fácil</option>
+    <option value="medio">Médio</option>
+    <option value="dificil">Difícil</option>
 </select>
-<button onclick="votar()">Votar</button>
 <span id="opSel"></span>
     </div>
 </div>    
@@ -146,31 +145,9 @@
 
     var idUsuario = sessionStorage.ID_USUARIO
     var nome = sessionStorage.NOME_USUARIO
-    var idsel =  sessionStorage.ID_SEL
-    var opSelecionada=sel_op.value
     user_name.innerHTML=`${nome}`
     function exit() {
         sessionStorage.clear()
         window.location = "index.html"
-
-        function cadastrar() {
-            console.log("cadastrar")
-        
-            fetch(`/routeQuiz/quizCadastrar`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    idUsuario: sessionStorage.ID_USUARIO,
-                    score: score_at
-                })
-            }).then((response) => {
-                console.log("Resp QUIZ: ", response)
-        
-            }).catch((error) => {[
-                console.log("Erro: " + error)
-            ]})
-        }
     }
 </script>
