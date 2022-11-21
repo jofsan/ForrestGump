@@ -18,7 +18,6 @@ CREATE TABLE usuario (
 
 CREATE TABLE quiz (
 	idquiz INT PRIMARY KEY AUTO_INCREMENT,
-	acertos int,
 	score int,
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
@@ -30,9 +29,6 @@ CREATE TABLE votoDificuldade (
 	fk_usuario int,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
-
-select*from usuario join quiz on fk_usuario=usuario.id 
-join votodificuldade on votodificuldade.fk_usuario=usuario.id;
 
 
 CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]

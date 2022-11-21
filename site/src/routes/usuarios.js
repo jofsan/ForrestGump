@@ -23,4 +23,8 @@ router.post("/opcaoSel", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/registrarscore", function (req, res) {
+    usuarioController.registrarscore(req, res);
+})
+
 module.exports = router;

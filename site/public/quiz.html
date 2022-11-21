@@ -137,6 +137,7 @@
                 result.innerHTML=`${star}`
                 s.innerHTML=`${score_at}`
             }
+            registrarscore(score_at)
             
         }
         res.innerHTML = qtdCorreta;
@@ -150,4 +151,50 @@
         sessionStorage.clear()
         window.location = "index.html"
     }
+
+    function registrarscore(score_at){
+var fkusuario = sessionStorage.ID_USUARIO;
+    
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/registrarscore", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+               
+                scoreServer: score_at,
+                fkusuarioServer: fkusuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    
 </script>
