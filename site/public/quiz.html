@@ -90,13 +90,14 @@
 <h2>NÍVEL DE FAN: <span id="result"></span>
     <h2>SCORE: <div id="s"></div>
     <div class="voto">
-        <h3> O que achou do Quiz?</h3>
-<select name="voto" id="sel_op" onchange="selecionarOp()">
-    <option value="">--selecione--</option>
-    <option value="facil">Fácil</option>
-    <option value="medio">Médio</option>
-    <option value="dificil">Difícil</option>
-</select>
+        <h3> Em poucas palavras, descreva o que achou do Quiz.</h3>
+        <span id="descricao">
+            Descrição (máximo de 30 caracteres):
+            <br>
+            <textarea name="descricao" id="desc" maxlength="30" rows="3"></textarea>
+            <button onclick="exibir()">Descrever</button>
+        </span>
+        
 <span id="opSel"></span>
     </div>
 </div>    
@@ -110,7 +111,7 @@
     var qtdCorreta=0;
     var star='<img src="./assets/star.png" style="width:30px;">'
     var score_at = 0;
-    var opselecionada=sel_op.value;
+   
     
     function resposta(num_pergunta, selecionada){
         opSel[num_pergunta] = selecionada.value;
@@ -140,8 +141,14 @@
             }
             registrarscore(score_at)
             
+            
         }
         res.innerHTML = qtdCorreta;
+    }
+    function exibir(){
+        var dificuldade=desc.value;
+        desc.value="";
+        pegarVoto(dificuldade)
     }
 
 
@@ -192,10 +199,57 @@ var fkusuario = sessionStorage.ID_USUARIO;
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
             finalizarAguardar();
+           
         });
 
         return false;
     }
+
+    function pegarVoto(dificuldade){
+        var fkusuario = sessionStorage.ID_USUARIO;
+    
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/pegarVoto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+               
+                dificuldadeServer: dificuldade,
+                fkusuarioServer: fkusuario
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+           
+        });
+
+        return false;
+    }
+    
 
     
 </script>

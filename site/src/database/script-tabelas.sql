@@ -19,15 +19,15 @@ CREATE TABLE usuario (
 CREATE TABLE quiz (
 	idquiz INT PRIMARY KEY AUTO_INCREMENT,
 	score int,
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	fkusuario INT,
+	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE votoDificuldade (
+CREATE TABLE voto (
 	idvoto INT PRIMARY KEY AUTO_INCREMENT,
 	dificuldade VARCHAR(30),
-	fk_usuario int,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	fkusuario int,
+	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
 

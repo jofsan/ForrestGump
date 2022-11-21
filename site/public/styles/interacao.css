@@ -74,6 +74,27 @@ h1{
 #score{
     color: rgb(8, 235, 8);
 }
+#descricao{
+    max-width: 500px;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    margin-bottom: 3px;
+ font-size: 1rem;
+}
+textarea{
+    width: 60%;
+    border-radius: 12px;
+    outline: none;
+}
+
+#descricao button{
+padding: 10px;
+width: 30%;
+}
+
 
 
 
