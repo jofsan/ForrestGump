@@ -152,10 +152,24 @@ color: white;
     text-align: center;
     font-family: sans-serif;
 }
+.val-card-1:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    
+  }
+  .val-card-2:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  .val-card-3:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 .val-card-titulo{
     font-size: 1.5rem;
     margin: 5px 0;
     font-weight: bold;
+    color:rgb(93, 193, 255); 
 }
 .val-card-texto{
     font-size: 1.2rem;
@@ -167,32 +181,35 @@ color: white;
     width: 600px;
     height: 250px;
     margin: 25px;
-    background-color: #fff;
+    background-color: rgb(34, 34, 34);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 12px rgb(10, 160, 255);
     display: flex;
+    color: #fff;
     
 }
 .val-card-2{
     width: 600px;
     height: 250px;
     margin: 25px;
-    background-color: #fff;
+    background-color: rgb(34, 34, 34);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 12px rgb(10, 160, 255);
     display: flex;
+    color: #fff;
 }
 .val-card-3{
     width: 600px;
     height: 250px;
     margin: 25px;
-    background-color: #fff;
+    background-color: rgb(34, 34, 34);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 0px 12px rgb(10, 160, 255);
     display: flex;
+    color: #fff;
 }
 
 /*cards sociais*/
