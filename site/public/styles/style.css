@@ -122,14 +122,6 @@ color: white;
     font-size: 2rem;
 }
 
-
-/*Sections videos*/
-.videos{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px; 
-    
-}
 /*cards sociais*/
 .titulo-card{
     color: rgb(10, 160, 255);
