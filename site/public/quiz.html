@@ -146,9 +146,9 @@
         res.innerHTML = qtdCorreta;
     }
     function exibir(){
-        var dificuldade=desc.value;
+        var descricao=desc.value;
         desc.value="";
-        pegarVoto(dificuldade)
+        pegarDesc(descricao)
     }
 
 
@@ -205,13 +205,13 @@ var fkusuario = sessionStorage.ID_USUARIO;
         return false;
     }
 
-    function pegarVoto(dificuldade){
+    function pegarDesc(descricao){
         var fkusuario = sessionStorage.ID_USUARIO;
     
 
 
         // Enviando o valor da nova input
-        fetch("/usuarios/pegarVoto", {
+        fetch("/usuarios/pegarDesc", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -220,7 +220,7 @@ var fkusuario = sessionStorage.ID_USUARIO;
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                
-                dificuldadeServer: dificuldade,
+                descricaoServer: descricao,
                 fkusuarioServer: fkusuario
             })
         }).then(function (resposta) {

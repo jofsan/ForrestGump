@@ -23,9 +23,9 @@ CREATE TABLE quiz (
 	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE voto (
+CREATE TABLE comentario (
 	idvoto INT PRIMARY KEY AUTO_INCREMENT,
-	dificuldade VARCHAR(30),
+	descricao VARCHAR(30),
 	fkusuario int,
 	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );

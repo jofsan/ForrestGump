@@ -120,17 +120,17 @@ function registrarscore(req, res) {
             );
     }
 }
-function pegarVoto(req, res) {
+function pegarDesc(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var dificuldade = req.body.dificuldadeServer;
+    var descricao = req.body.descricaoServer;
     var fkusuario =req.body.fkusuarioServer;
 
     // Faça as validações dos valores
-    if (dificuldade == undefined) {
+    if (descricao == undefined) {
         res.status(400).send("Seus pontos estão undefined!");
     } else {
          // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.pegarVoto(dificuldade, fkusuario)
+        usuarioModel.pegarDesc(descricao, fkusuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -153,5 +153,5 @@ module.exports = {
     listar,
     testar,
     registrarscore,
-    pegarVoto
+    pegarDesc
 }

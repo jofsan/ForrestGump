@@ -26,8 +26,8 @@ router.post("/opcaoSel", function (req, res) {
 router.post("/registrarscore", function (req, res) {
     usuarioController.registrarscore(req, res);
 })
-router.post("/pegarVoto", function (req, res) {
-    usuarioController.pegarVoto(req, res);
+router.post("/pegarDesc", function (req, res) {
+    usuarioController.pegarDesc(req, res);
 })
 
 module.exports = router;
