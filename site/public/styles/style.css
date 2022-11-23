@@ -121,6 +121,16 @@ color: white;
     text-align: center;
     font-size: 2rem;
 }
+.describe a{
+    color:rgb(10, 160, 255); 
+    font-size: 1.5rem;
+    
+}
+.describe a:hover{
+    color:rgb(6, 8, 175); 
+    font-size: 1.5rem;
+    
+}
 /*cards valores*/
 .titulo-valores-card{
     color: rgb(10, 160, 255);
