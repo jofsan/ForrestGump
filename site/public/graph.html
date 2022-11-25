@@ -58,12 +58,11 @@
     var nome = sessionStorage.NOME_USUARIO
     user_name.innerHTML=`${nome}`
 
+    var nomeQuiz=[];
+    var scoreQuiz=[];
   function obterDadosGrafico(idQuiz) {
-        alterarTitulo(idQuiz)
+        
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
 
         fetch(`/medidas/ultimas/${idQuiz}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -71,10 +70,26 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idQuiz);
+                    resposta[0].score
+                    resposta[0].nome
+                    nomeQuiz.push(resposta[0].nome);
+                    scoreQuiz.push(resposta[0].score);
+                    nomeQuiz.push(resposta[1].nome);
+                    scoreQuiz.push(resposta[1].score);
+                    nomeQuiz.push(resposta[2].nome);
+                    scoreQuiz.push(resposta[2].score);
+                    nomeQuiz.push(resposta[3].nome);
+                    scoreQuiz.push(resposta[3].score);
+                    nomeQuiz.push(resposta[4].nome);
+                    scoreQuiz.push(resposta[4].score);
+
+                    nomeQuiz = ["oi", "oi", "oi"]
+
+                    plotarGrafico(nomeQuiz, scoreQuiz);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
+                
             }
         })
             .catch(function (error) {
@@ -85,7 +100,7 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idQuiz) {
+    function plotarGrafico(nomeQuiz, scoreQuiz) {
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
@@ -124,7 +139,7 @@
         
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 
@@ -133,8 +148,6 @@
             document.getElementById('myChart'),
             config
         );
-
-        setTimeout(() => atualizarGrafico(idQuiz, dados, myChart), 2000);
     }
 
 </script>
