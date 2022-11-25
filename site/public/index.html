@@ -150,10 +150,13 @@
             <img src="./assets/bubba_logo.png" class="card-img">
         </div>
         <div class="market-card-body">
-            <h3 class="card-titulo">Vende-se camarão</h3>
+            <h3 class="card-titulo">Forrest quer saber preço do seu camarão!</h3>
+            <h3>Forrest gosta de desconto acima de 5KG</h3>
            
-            <input type="text" id="ipt_qtd_camarão">
-            
+            Informe o preço do KG:<input type="text" id="ipt_preco" placeholder="informe o preço do KG">
+            Infomre o desconto:<input type="text" id="ipt_desconto" placeholder="informe o desconto">
+           <button onclick="simular()">Simular preço</button>
+            <div id="res"></div>
         </div>
     </div>
 </section>
@@ -195,5 +198,12 @@ function gerar(){
     ]
 
 document.querySelector('#res').textContent=gerando;
+}
+
+function simular(){
+    var precoKg=Number(ipt_preco.value);
+    var desconto=Number(ipt_desconto.value);
+if(precoKg==precoKg*5){}
+    
 }
  </script>
