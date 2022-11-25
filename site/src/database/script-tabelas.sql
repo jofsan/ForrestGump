@@ -24,7 +24,7 @@ CREATE TABLE quiz (
 );
 
 CREATE TABLE comentario (
-	idvoto INT PRIMARY KEY AUTO_INCREMENT,
+	iddesc INT PRIMARY KEY AUTO_INCREMENT,
 	descricao VARCHAR(30),
 	fkusuario int,
 	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
