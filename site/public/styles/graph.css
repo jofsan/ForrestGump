@@ -8,96 +8,14 @@
   span{
     color: #fff;
   }
-  .avisoCaptura {
-    display: flex;
-    justify-content: center;
-  }
   
-  .dash-right .avisos {
-    width: 100%;
-    /* border: 3px solid pink; */
-    color: rgb(216, 216, 216);
-    font-family: "Exo 2", sans-serif;
-  }
-  
-  .dash-right .avisos .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .dash-right .avisos .container .div-form {
-    width: 100%;
-  }
-  
-  .dash-right .avisos .container .div-form #form_postagem {
-    width: 100%;
-  }
-  
-  .dash-right .avisos .div-form label {
-    width: 100%;
-  }
-  
-  .dash-right .avisos .div-form input {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .dash-right .avisos .div-form textarea {
-    width: 100%;
-    /* color: #E6005A; */
-    border: 3px solid #e6005a;
-    background-color: white;
-    border-radius: 5px;
-  }
-  
-  .dash-right .avisos .div-form button {
-    cursor: pointer;
-    font-family: "Exo 2", sans-serif;
-    border: 0;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 10px 15px;
-    color: white;
-    background-color: #e6005a;
-    width: 120px;
-  }
-  
-  .publicacao-btn-editar {
-    cursor: pointer;
-    font-family: "Exo 2", sans-serif;
-    border: 0;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 5px 8px;
-    color: white;
-    background-color: #e6005a;
-    width: 80px;
-  }
-  
-  .publicacao {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    border-bottom: 3px solid #e6005a;
-    padding: 20px;
-  }
-  
-  .publicacao > *:not(:last-child) {
-    padding: 0 0 10px 0;
-  }
   
   .div-results {
     width: 100%;
   }
   
   .div-results .feed-container {
-    background-color: #212124;
+    background-color: #ffffff;
     border-radius: 5px;
     margin-bottom: 80px;
   }
@@ -113,49 +31,19 @@
   
   /* pagina graficos */
   
-  .dash-header {
-    background-color: #212124;
-  }
   
   .dash {
     width: 50%;
     position: relative;
     top: 0;
     left: 25%;
-    background-color: #161618;
+    background-color: rgb(139, 139, 139);
     align-items: center;
     height: 70vh;
     margin-top: 150px;
   }
   
-  .regua {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    margin-top: 30px;
-  }
-  
-  .perigo-frio {
-    background-color: #5c6bc0;
-  }
-  
-  .perigo-quente {
-    background-color: #ff7043;
-  }
-  
-  .alerta-frio {
-    background-color: #42a5f5;
-  }
-  
-  .alerta-quente {
-    background-color: #ffee58;
-  }
-  
-  .ideal {
-    background-color: #9ccc65;
-  }
-  
+
   .item-regua {
     padding: 5px;
     width: 15%;
@@ -202,21 +90,6 @@
     margin: 20px;
   }
   
-  .temperatura,
-  .umidade {
-    margin: 5px;
-    margin-left: 20px;
-    width: 75%;
-  }
-  
-  .cor-alerta {
-    width: 13%;
-    height: 30%;
-    border-radius: 50px;
-    margin-top: 6%;
-    /* background-color: #c7c7c7; */
-  }
-  
   .btns-dash {
     display: flex;
     align-items: center;
@@ -231,7 +104,7 @@
   }
   
   .tituloGraficos {
-    color: rgb(216, 216, 216);
+    color: #fff;
     display: flex;
     justify-content: center;
   }
@@ -242,9 +115,17 @@
     font-weight: 600;
     font-size: 18px;
     padding: 10px 15px;
-    color: #e6005a;
-    background-color: white;
+    color: white;
+    background-color: rgb(10, 160, 255);
     margin: 5px;
     border-radius: 3px;
+    cursor: pointer;
   }
-  
+  .btn-chart:hover {
+    background-color:rgb(65, 92, 247); 
+    cursor: pointer;
+  }
+  .titulo-dash{
+    text-align: center;
+    color: #fff;
+  }
