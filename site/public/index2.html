@@ -229,13 +229,13 @@ if(preco==''||desconto==''||apartirDe==''){
 resMarket.innerHTML=`Preencha os campos para simular!`
 }
 else if(totalCamarao>200){
-resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)} <br>Total do camarão sem desconto: R$ ${totalPreco .toFixed(2) } <br>total do desconto: R$ ${totalDesconto .toFixed(2)}.`
+resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)}, Total do camarão sem desconto: R$ ${totalPreco .toFixed(2) }, total do desconto: R$ ${totalDesconto .toFixed(2)}.`
 resMarket2.innerHTML+=`<br>Xiii, muito caro! o Forrest não gostou do preço`
 }else if(totalCamarao>=180 && totalCamarao <= 200){
-    resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)} <br>Total do camarão sem desconto: R$ ${totalPreco .toFixed(2)} <br>total do desconto: R$ ${totalDesconto .toFixed(2)}.`
+    resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)}, Total do camarão sem desconto: R$ ${totalPreco .toFixed(2)}, total do desconto: R$ ${totalDesconto .toFixed(2)}.`
     resMarket2.innerHTML+=`<br>Esse preço está bom, continue assim!`
 }else{
-    resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)} <br>Total do camarão sem desconto: R$ ${totalPreco .toFixed(2)} <br>total do desconto: R$ ${totalDesconto .toFixed(2)}.`
+    resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)}, Total do camarão sem desconto: R$ ${totalPreco .toFixed(2)}, total do desconto: R$ ${totalDesconto .toFixed(2)}.`
     resMarket2.innerHTML+=`<br>UAL!!! com esse preço o Forrest será seu freguês eterno!`
 }
     
