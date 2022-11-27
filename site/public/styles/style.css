@@ -60,6 +60,9 @@ header .navegation li a:hover{
     color: rgb(10, 160, 255);
 }
 
+.icon-name span{
+    color: #fff;
+}
 /*estilizando especificamente o design da li do LOGIN*/
 #login{
     border: 1px solid #2962ff;
