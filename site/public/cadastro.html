@@ -37,13 +37,13 @@
                 </div>
             </div>
             <span class="tipo_campo">Nome:</span>
-            <input id="ipt_nome" type="text" placeholder="Seu nome">
+            <input id="ipt_nome" type="text" placeholder="Seu nome (mínimo 4 caracteres)">
 
             <span class="tipo_campo">E-mail:</span>
-            <input id="ipt_email" type="text" placeholder="Seu e-mail">
+            <input id="ipt_email" type="email" placeholder="Seu e-mail">
 
             <span class="tipo_campo">Senha:</span>
-            <input id="ipt_senha" type="password" placeholder="Sua senha">
+            <input id="ipt_senha" type="password" placeholder="Sua senha (mínimo 6 caracteres)">
 
             <span class="tipo_campo">Confirmação da Senha:</span>
             <input id="ipt_confirmSenha" type="password" placeholder="Confirme sua senha">
@@ -79,11 +79,33 @@
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-            finalizarAguardar();
-            return false;
-        }else if(confirmacaoSenha!=senha){
-alert('A confirmação não pode ser diferente.')
+           
         }
+        if(confirmacaoSenha!=senha){
+            
+alert('A confirmação não pode ser diferente.')
+ipt_confirmSenha.style.border='solid 1px red'
+        }
+         if(nome.length<4){
+        
+alert('O nome precisa ter pelo menos 4 caracteres')
+ipt_nome.style.border='solid 1px red'
+
+        }
+        if(senha.length<6){
+            ipt_senha.style.border='solid 1px red'
+          
+alert('A senha precisa ter pelo menos 6 caracteres')
+}
+     
+if(email.indexOf("@") <0 || email.indexOf(".com") <0){
+    alert('Por gentileza, insira um e-mail valido!')
+    ipt_email.style.border='solid 1px red'
+
+    finalizarAguardar();
+    return false;
+}
+        
         else {
             setInterval(sumirMensagem, 5000)
         }
