@@ -32,8 +32,11 @@ CREATE TABLE comentario (
 select*from usuario;
 select*from quiz;
 select*from comentario;
-SELECT*FROM comentario join usuario on id=fkusuario where descricao is not null;
-
+select*from usuario join quiz on id=fkusuario;
+select*from usuario join quiz on id=fkusuario join comentario on id=comentario.fkusuario;
+select sum(score)from quiz;
+select avg(score)from quiz;
+select nome, score from usuario join quiz on id=fkusuario where score >=20;
 CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
 WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
 DEFAULT_SCHEMA = dbo;
