@@ -31,14 +31,15 @@
 <section class="describe">
     <h1>RESUMO SOBRE O FORREST:</h1>
     <p>Forrest Gump nasceu em 1944, no Alabama, e trás consigo seu carisma e simplicidade que encanta a todos,
-         mesmo que na infância tenha sido diagnosticado com um QI abaixo da média, ou seja, abaixo de 75.
-        Fez diversas coisas incriveis, como : representar o país na guerra do Vietna, ser grande destaque no futebol americano
-        na faculdade, interagir com o presidente dos EUA, 
-        ser inspiração na coreografia do Elvis Presley ou até mesmo 
-        representar a nação jogando Ping-pong, contra a China. 
-        Além de tudo isso, teve muito sucesso vendendo camarão, seguindo o sonho de seu amigo, Bubba. Infelizmente, morto 
-        na guerra, então Forrest  o homenageou, dando o nome do seu novo negócio de Bubba Gump.
-        Agora que você já está craque, que tal responder o nosso <a href="login.html">Quiz?</a>
+        mesmo que na infância tenha sido diagnosticado com um QI abaixo da média, ou seja, abaixo de 75,
+       fez diversas coisas incriveis, como : representar o país na guerra do Vietna, ser grande destaque no futebol americano
+       na faculdade em que estudava, interagiu com o presidente dos EUA, 
+       foi inspiração na coreografia do Elvis Presley e também 
+       representou sua nação jogando Ping-pong, contra a China. 
+       Além de tudo isso, teve muito sucesso vendendo camarão, seguindo o sonho de seu amigo, Bubba, que infelizmente, morreu
+       durante um confronto na guerra, então Forrest com sua lealdade o homenageou, dando o nome do seu novo negócio de Bubba Gump,
+       o qual faz muito sucesso com seus camarões.
+       Agora que você já tem uma base sobre o Forrest, que tal responder o nosso <a href="login.html">Quiz?</a>
     <p>
 </section>
 <h1 class="titulo-valores-card">ALGUNS VALORES DO FORREST:</h1>
@@ -136,7 +137,7 @@
 </section>
 <section class="frases">
     <div class="mensagem">
-        
+
         <h2>O que o Forrest tem a dizer?</h2>
         <div  id="res"></div>
         <button onclick="gerar()">Gerar frase</button>
@@ -145,36 +146,30 @@
     <div class="imagem"><img src="./assets/forrest-sentado.png" alt=""></div>
 </section>
 <section class="market">
-    <div class="market-card">
-        <div class="market-card-header">
-            <img src="./assets/bubba_logo.png" class="market-card-img">
-        </div>
-        <div class="market-card-body">
-            <h2 class="market-card-titulo">Forrest quer saber o preço do seu camarão!</h2>
-            <div class="market-span">
-                <span>
-                    Informe o preço do seu camarão: 
-                    <input type="number" id="ipt_preco" placeholder="informe o preço do KG">
-                   </span>
-                   <span>
-                    Informe seu desconto em %:
-                    <input type="number" id="ipt_desconto" placeholder="Informe o seu desconto">
-                   </span>
-                   <span>
-                    A partir de quantos KG se aplica o desconto?
-                    <input type="number" id="ipt_apartirDe" placeholder="Informe a partir de quanto">
-                   </span>
-                   <span>
-                    DICA: Forrest gosta de pechinchar!!!
-                   </span>
-                   <button onclick="simular()">Simular preço</button>
-            </div>
-           
-          
-            <div id="resMarket"></div>
-            <div id="resMarket2"></div>
-        </div>
+    <div class="marketSpan">
+        
+        <h2 class="market-card-titulo">Forrest deseja saber o preço do seu camarão!</h2>
+        <span>
+            Informe o preço do camarão: 
+            <input type="number" id="ipt_preco" placeholder="informe o preço do KG">
+           </span>
+           <span>
+            Informe seu desconto em %:
+            <input type="number" id="ipt_desconto" placeholder="Informe o seu desconto">
+           </span>
+           <span>
+            Desconto a partir de quantos KG?
+            <input type="number" id="ipt_apartirDe" placeholder="A partir de ?">
+           </span>
+           <span>
+            Faça um preço camarada para o Forrest!
+           </span>
+           <button onclick="simular()">Vender</button>
+           <div id="resMarket2"></div>
+           <div id="resMarket"></div>
+            
     </div>
+    
 </section>
 
 <section class="comments">
@@ -220,24 +215,29 @@ function simular(){
     var preco= Number(ipt_preco.value);
     var desconto = Number(ipt_desconto.value);
     var apartirDe = Number(ipt_apartirDe.value);
-    var totalPreco=preco*apartirDe
-    var totalDesconto= (apartirDe*preco*(desconto))/100;
+    var forrest= (Math.random()*20+1).toFixed(0)
+    var totalPreco=preco*forrest
+    var totalDesconto= (totalPreco*desconto)/100;
     var totalCamarao=totalPreco-totalDesconto
+    
+    var aqui=0;
+   
 resMarket.innerHTML='';
 resMarket2.innerHTML='';
 if(preco==''||desconto==''||apartirDe==''){
-resMarket.innerHTML=`Preencha os campos para simular!`
+resMarket.innerHTML=`Preencha os campos para vender!`
 }
-else if(totalCamarao>200){
-resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)}, Total do camarão sem desconto: R$ ${totalPreco .toFixed(2) }, total do desconto: R$ ${totalDesconto .toFixed(2)}.`
-resMarket2.innerHTML+=`<br>Xiii, muito caro! o Forrest não gostou do preço`
-}else if(totalCamarao>=180 && totalCamarao <= 200){
-    resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)}, Total do camarão sem desconto: R$ ${totalPreco .toFixed(2)}, total do desconto: R$ ${totalDesconto .toFixed(2)}.`
-    resMarket2.innerHTML+=`<br>Esse preço está bom, continue assim!`
+else if(forrest>=apartirDe){
+    resMarket2.innerHTML+=`Forrest decidiu comprar: ${forrest} KG.`
+    resMarket.innerHTML+=`Total do preço R$: ${totalPreco .toFixed(2)} <br>Total do desconto R$: ${totalDesconto .toFixed(2)} <br>Total do preço com desconto R$: ${totalCamarao .toFixed(2)}`
+
 }else{
-    resMarket.innerHTML+=`Total do camarão com desconto: R$ ${totalCamarao .toFixed(2)}, Total do camarão sem desconto: R$ ${totalPreco .toFixed(2)}, total do desconto: R$ ${totalDesconto .toFixed(2)}.`
-    resMarket2.innerHTML+=`<br>UAL!!! com esse preço o Forrest será seu freguês eterno!`
+    totalDesconto=0;
+    totalCamarao=totalPreco
+    resMarket2.innerHTML+=`Forrest decidiu comprar: ${forrest} KG.`
+    resMarket.innerHTML+=`Total do preço R$: ${totalPreco .toFixed(2)} <br>Total do desconto R$: ${totalDesconto .toFixed(2)} <br>Total do preço com desconto R$: ${totalCamarao .toFixed(2)}`
 }
+
     
 }
  </script>
