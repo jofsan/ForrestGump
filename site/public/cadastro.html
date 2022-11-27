@@ -96,6 +96,8 @@ ipt_nome.style.border='solid 1px red'
             ipt_senha.style.border='solid 1px red'
           
 alert('A senha precisa ter pelo menos 6 caracteres')
+finalizarAguardar();
+    return false;
 }
      
 if(email.indexOf("@") <0 || email.indexOf(".com") <0){

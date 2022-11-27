@@ -11,9 +11,9 @@ USE forrestgump;
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(45),
-	email VARCHAR(60),
-	senha VARCHAR(20)
+	nome VARCHAR(45) NOT NULL,
+	email VARCHAR(60) UNIQUE NOT NULL,
+	senha VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE quiz (
@@ -25,11 +25,14 @@ CREATE TABLE quiz (
 
 CREATE TABLE comentario (
 	iddesc INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(30),
+	descricao VARCHAR(30) NOT NULL,
 	fkusuario int,
 	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
-
+select*from usuario;
+select*from quiz;
+select*from comentario;
+SELECT*FROM comentario join usuario on id=fkusuario where descricao is not null;
 
 CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
 WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
