@@ -102,7 +102,6 @@
 <span id="opSel"></span>
     </div>
 </div>    
-</section>
 <section class="gabarito">
     <h1>Gabarito- Mas sem colar em...</h1>
 <button onclick="verResposta()">Ver respostas</button>
@@ -118,6 +117,7 @@
 </body>
 </html>
 <script>
+    //funcionalidade que permite apenas usuarios logados a realizar o quiz
     window.addEventListener("load", () => {
         const isSessionActive = sessionStorage.length === 0;
 
@@ -131,18 +131,20 @@
 
     console.log(sessionStorage)
 
+//  variaveis do quiz 
     var corretas =[2,1,1,2,3];
     var opSel = [];
     var qtdCorreta=0;
     var star='<img src="./assets/star.png" style="width:30px;">'
     var score_at = 0;
    
-    
+    // função que aloca a resposta selecionada do úsurario
     function resposta(num_pergunta, selecionada){
         opSel[num_pergunta] = selecionada.value;
         id="p" + num_pergunta;  
     }
 
+    // função que valida a resposta em uma estrutura de FOR 
     function responder(){
         qtdCorreta =0;
         score_at=0;
@@ -171,12 +173,14 @@
         registrarscore(score_at)
         res.innerHTML = qtdCorreta;
     }
+    // funções do gabarito
     function verResposta(){
 verRes.style.display="block";
     }
     function ocultarResposta(){
         verRes.style.display="none";
     }
+    // função da descrição
     function exibir(){
         var userDesc=[]
         var descricao=desc.value;
@@ -188,11 +192,13 @@ verRes.style.display="block";
     var idUsuario = sessionStorage.ID_USUARIO
     var nome = sessionStorage.NOME_USUARIO
     user_name.innerHTML=`${nome}`
+
+    // função para deslogar da pagina
     function exit() {
         sessionStorage.clear()
         window.location = "index.html"
     }
-
+// função que registra os pontos e envia para o banco
     function registrarscore(score_at){
 var fkusuario = sessionStorage.ID_USUARIO;
     
@@ -237,7 +243,7 @@ var fkusuario = sessionStorage.ID_USUARIO;
 
         return false;
     }
-
+// função que envia a descrição para o banco 
     function pegarDesc(descricao){
         var fkusuario = sessionStorage.ID_USUARIO;
     
