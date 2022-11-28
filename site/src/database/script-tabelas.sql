@@ -33,10 +33,12 @@ select*from usuario;
 select*from quiz;
 select*from comentario;
 select*from usuario join quiz on id=fkusuario;
+select*from usuario join comentario on id=fkusuario;
 select*from usuario join quiz on id=fkusuario join comentario on id=comentario.fkusuario;
 select sum(score)from quiz;
 select avg(score)from quiz;
-select nome, score from usuario join quiz on id=fkusuario where score >=20;
+select concat('O usuario ', nome , ' fez ' , score ,' pontos', ' e comentou ', descricao) 
+as ' texto quiz ' from usuario join quiz on id=fkusuario join comentario on id=comentario.fkusuario;
 CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
 WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
 DEFAULT_SCHEMA = dbo;

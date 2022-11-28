@@ -117,6 +117,11 @@
 </body>
 </html>
 <script>
+    // storage que aloca id do usuario e nome
+    var idUsuario = sessionStorage.ID_USUARIO
+    var nome = sessionStorage.NOME_USUARIO
+    user_name.innerHTML=`${nome}`
+
     //funcionalidade que permite apenas usuarios logados a realizar o quiz
     window.addEventListener("load", () => {
         const isSessionActive = sessionStorage.length === 0;
@@ -189,9 +194,7 @@ verRes.style.display="block";
     }
 
 
-    var idUsuario = sessionStorage.ID_USUARIO
-    var nome = sessionStorage.NOME_USUARIO
-    user_name.innerHTML=`${nome}`
+  
 
     // função para deslogar da pagina
     function exit() {
