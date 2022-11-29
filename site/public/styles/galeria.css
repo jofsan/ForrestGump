@@ -18,7 +18,7 @@ body{
 
 .container{
   width: 100%;
-  padding: 50px 0;
+  padding: 50px;
   height: 100vh;
 }
 
@@ -44,7 +44,7 @@ body{
 
 .container .images{
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -65,32 +65,6 @@ body{
   transform: scale(1.5);
 }
 
-@media screen and (max-width:1200px) { 
 
-  .container .image{
-    flex: 33.33%;
-  }
-  
-}
-
-@media screen and (max-width:768px) { 
-
-  .container .image{
-    flex: 50%;
-  }
-
-  .container h1{
-    font-size: 22px;
-  }
-  
-}
-
-@media screen and (max-width:480px) { 
-
-  .container .image{
-    flex: 100%;
-  }
-  
-}
 
 
