@@ -171,9 +171,6 @@
                 result.innerHTML=`${star}`
                 s.innerHTML=`${score_at}`
             }
-            
-            
-            
         }
         registrarscore(score_at)
         res.innerHTML = qtdCorreta;
@@ -187,15 +184,10 @@ verRes.style.display="block";
     }
     // função da descrição
     function exibir(){
-        var userDesc=[]
         var descricao=desc.value;
         desc.value="";
-        pegarDesc(descricao)
+        pegarDesc(descricao)  
     }
-
-
-  
-
     // função para deslogar da pagina
     function exit() {
         sessionStorage.clear()
@@ -249,9 +241,6 @@ var fkusuario = sessionStorage.ID_USUARIO;
 // função que envia a descrição para o banco 
     function pegarDesc(descricao){
         var fkusuario = sessionStorage.ID_USUARIO;
-    
-
-
         // Enviando o valor da nova input
         fetch("/usuarios/pegarDesc", {
             method: "POST",
