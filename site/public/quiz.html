@@ -136,20 +136,7 @@
     var nome = sessionStorage.NOME_USUARIO
     user_name.innerHTML=`${nome}`
 
-    //funcionalidade que permite apenas usuarios logados a realizar o quiz
-    window.addEventListener("load", () => {
-        const isSessionActive = sessionStorage.length === 0;
-
-        if(isSessionActive) {
-            alert (`Para fazer o quiz, é necessário o login!`)
-            return window.location = "./Login.html";
-        }
-
-        console.log("Você tem uma sessão ativa!");
-    })
-
-    console.log(sessionStorage)
-
+    
 //  variaveis do quiz 
     var corretas =[2,1,1,2,3,1];
     var opSel = [];
@@ -202,6 +189,21 @@ verRes.style.display="block";
         desc.value="";
         pegarDesc(descricao)  
     }
+
+    //funcionalidade que permite apenas usuarios logados a realizar o quiz
+    window.addEventListener("load", () => {
+        const isSessionActive = sessionStorage.length === 0;
+
+        if(isSessionActive) {
+            alert (`Para fazer o quiz, é necessário o login!`)
+            return window.location = "./Login.html";
+        }
+
+        console.log("Você tem uma sessão ativa!");
+    })
+
+    console.log(sessionStorage)
+
     // função para deslogar da pagina
     function exit() {
         sessionStorage.clear()
