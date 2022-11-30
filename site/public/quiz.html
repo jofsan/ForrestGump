@@ -86,6 +86,18 @@
         <input type="radio" value="3" name="p4" onclick="resposta(4,this)">Elvis Presley
     </label>
 </section>
+<section id="p5">
+    <h3>6 - Qual dos valores foram citados?</h3>
+    <label>
+        <input type="radio" value="1" name="p5" onclick="resposta(5,this)">Otimismo
+    </label>
+    <label >
+        <input type="radio" value="2" name="p5" onclick="resposta(5,this)">Respeito
+    </label>
+    <label >
+        <input type="radio" value="3" name="p5" onclick="resposta(5,this)">Empatia
+    </label>
+</section>
 <button onclick="responder()">RESPONDER</button>
 <h2>ACERTOS: <span id="res"></span></h2>
 <h2>NÍVEL DE FAN: <span id="result"></span>
@@ -112,6 +124,8 @@
 <h3>Questão 3 - Guerra do Vietnã</h3>
 <h3>Questão 4 - Ping-pong</h3>
 <h3>Questão 5 - Elvis Presley</h3>
+<h3>Questão 6 - Otimismo</h3>
+
 </div>
 </section>
 </body>
@@ -137,7 +151,7 @@
     console.log(sessionStorage)
 
 //  variaveis do quiz 
-    var corretas =[2,1,1,2,3];
+    var corretas =[2,1,1,2,3,1];
     var opSel = [];
     var qtdCorreta=0;
     var star='<img src="./assets/star.png" style="width:30px;">'

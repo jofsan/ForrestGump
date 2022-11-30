@@ -18,7 +18,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE quiz (
 	idquiz INT PRIMARY KEY AUTO_INCREMENT,
-	score int,
+	score INT,
 	fkusuario INT,
 	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
@@ -26,7 +26,7 @@ CREATE TABLE quiz (
 CREATE TABLE comentario (
 	iddesc INT PRIMARY KEY AUTO_INCREMENT,
 	descricao VARCHAR(30) NOT NULL,
-	fkusuario int,
+	fkusuario INT,
 	FOREIGN KEY (fkusuario) REFERENCES usuario(id)
 );
 select*from usuario;
