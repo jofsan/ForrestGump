@@ -35,6 +35,9 @@ select*from comentario;
 select*from usuario join quiz on id=fkusuario;
 select*from usuario join comentario on id=fkusuario;
 select*from usuario join quiz on id=fkusuario join comentario on id=comentario.fkusuario;
+select nome,email from usuario where id=1;
+select nome, score, descricao from usuario join quiz on id=fkusuario join comentario as com on id=com.fkusuario;
+select*from usuario join quiz on id=fkusuario join comentario as com on id=com.fkusuario;
 select sum(score)from quiz;
 select avg(score)from quiz;
 select concat('O usuario ', nome , ' fez ' , score ,' pontos', ' e comentou ', descricao) 
