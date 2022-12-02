@@ -192,10 +192,10 @@ verRes.style.display="block";
 
     //funcionalidade que permite apenas usuarios logados a realizar o quiz
     window.addEventListener("load", () => {
-        const isSessionActive = sessionStorage.length === 0;
+        var sessaoAtiva = sessionStorage.length === 0;
 
-        if(isSessionActive) {
-            alert (`Para fazer o quiz, é necessário o login!`)
+        if(sessaoAtiva) {
+            alert (`É necessário fazer um cadastro para realizar o Quiz!`)
             return window.location = "./Login.html";
         }
 
